@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Fadlilatul Bahtiyar</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Using Plus Jakarta Sans for a clean, geometric, modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        apple: {
+                            bg: '#ffffff',
+                            surface: '#f5f5f7', // Light gray standard for Apple-like sections
+                            text: '#1d1d1f',    // Deep dark gray for strong readability
+                            subtext: '#1d1d1f',
+                            border: '#d2d2d7'
+                        },
+                        nanas: {
+                            bg: '#ffffff',
+                            surface: '#f5f5f7', // Light gray standard for Apple-like sections
+                            text: '#1d1d1f',    // Deep dark gray for strong readability
+                            subtext: '#838385',
+                            border: '#d2d2d7'
+                        },
+                        accent: {
+                            green: '#00BA8C',
+                            blue: '#007AFF',
+                            dark: '#1d1d1f'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    boxShadow: {
+                        'premium': '0 4px 24px rgba(0, 0, 0, 0.04)',
+                        'premium-hover': '0 12px 32px rgba(0, 0, 0, 0.08)',
+                        'glass': '0 8px 32px rgba(0, 0, 0, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Base typography & smoothing */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #ffffff;
+            color: #1d1d1f;
+        }
+
+        /* Clean Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: #ffffff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d2d2d7;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #86868b;
+        }
+        
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Glassmorphism strict usage */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.365);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 0, 0, 0.18);
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gradient Text Utility */
+        .text-gradient {
+            background: linear-gradient(135deg, #1d1d1f 0%, #00BA8C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #00BA8C 0%, #007AFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Typewriter minimal */
+        .typewriter::after {
+            content: '|';
+            color: #00BA8C;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* Smooth Flip Card for Interests (Maintaining Functionality, Upgrading UI) */
+        .flip-card-container {
+            perspective: 1000px;
+        }
+        .flip-inner {
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .flip-front, .flip-back {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .flip-back {
+            transform: rotateY(180deg);
+        }
+
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-none {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="font-sans overflow-x-hidden">
+
+    <nav class="fixed top-2 inset-x-0 flex justify-center px-4 z-50 transition-all duration-300">
+        <div class="w-full max-w-7xl glass-nav rounded-[1rem] mx-auto px-6 py-2 flex justify-between items-center shadow-lg">
+            <a href="#home" class="text-xl font-bold tracking-tight flex items-center gap-2 group">
+                <span class="text-apple-text group-hover:text-accent-green transition-colors duration-300">Fadlilatul Bahtiyar.</span>
+            </a>
+            
+            <div class="hidden md:flex gap-10 font-medium text-sm text-apple-subtext">
+                <a href="#home" class="hover:text-apple-text transition-colors duration-300 relative group">
+                    Home
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-apple-text transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="hover:text-apple-text transition-colors duration-300 relative group">
+                    Tentang
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-apple-text transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#activity" class="hover:text-apple-text transition-colors duration-300 relative group">
+                    Aktivitas
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-apple-text transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#ide" class="hover:text-apple-text transition-colors duration-300 relative group">
+                    Ide
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-apple-text transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#karya" class="hover:text-apple-text transition-colors duration-300 relative group">
+                    Karya
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-apple-text transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#skill" class="hover:text-apple-text transition-colors duration-300 relative group">
+                    Skill
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-apple-text transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+            
+            <a href="#contact" class="hidden md:flex px-5 py-2 rounded-full bg-apple-text text-white text-sm hover:bg-gray-800 transition-all duration-300 hover:scale-105 active:scale-95">
+                Kenalan Yuk
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-btn" class="md:hidden text-apple-text p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 glass-nav rounded-[1.2rem] shadow-lg flex flex-col p-6 space-y-4 text-center mt-4 mx-4">
+            <a href="#home" class="block text-apple-text font-medium py-2">Home</a>
+            <a href="#about" class="block text-apple-text font-medium py-2">Tentang</a>
+            <a href="#activity" class="block text-apple-text font-medium py-2">Aktivitas</a>
+            <a href="#ide" class="block text-apple-text font-medium py-2">Ide</a>
+            <a href="#karya" class="block text-apple-text font-medium py-2">Karya</a>
+            <a href="#skill" class="block text-apple-text font-medium py-2">Skill</a>
+        </div>
+    </nav>
+
+    <section id="home" class="relative pt-32 pb-20 px-6 min-h-[95vh] flex items-center justify-center overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-8 items-center z-10">
+            <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[500vw] max-w-[3000px] h-[700px] bg-[#4ed6f5]/40 blur-[120px]"></div>
+            
+            <!-- Text Content -->
+            <div class="order-2 lg:order-1 text-left lg:text-left reveal">
+                
+                <h1 class="text-gradient text-8xl md:text-7xl lg:text-[5rem] font-bold tracking-tighter leading-[0.8] md:leading-[1] mb-6 text-apple-text">
+                    call me? <br class="hidden lg:block">
+                    <span class="text-gradient-blue typewriter text-7xl lg:text-[9rem]" id="typewriter-text"></span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-nanas-subtext font-medium mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    Halo, saya Bahtiyar. Menggabungkan ketertarikan pada sains hayati, pertanian, dan desain visual untuk menciptakan dampak yang bermakna.
+                </p>
+                
+                <div class="flex flex-row sm:flex-row gap-4 justify-start lg:justify-start">
+                    <a href="#about" class="px-7 py-4 md:px-8 md:py-4 bg-gray-700 text-white rounded-full font-medium hover:bg-green-600 transition-all duration-300 hover:-translate-y-1 active:scale-95 text-center shadow-lg">
+                        Jelajahi Profil
+                    </a>
+                    <a href="#karya" class="px-7 py-4 md:px-8 md:py-4 bg-white text-apple-text rounded-full font-medium hover:bg-gray-700 hover:text-white transition-all duration-300 hover:-translate-y-1 active:scale-95 text-center shadow-lg">
+                        Lihat Karya
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Visual (Clean Apple-style presentation) -->
+            <div class="relative group order-1 lg:order-2 flex justify-center lg:justify-start reveal delay-200">
+                <!-- Gambar Profil -->
+                <img src="diri aku.png" alt="Bahtiyar" class="transition-transform duration-700 group-hover:scale-105 rounded-[6rem] md:rounded-[0.5rem]">
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="about" class="py-24 md:py-32 bg-white relative reveal">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Header Utama Section -->
+            <h2 class="text-4xl md:text-5xl font-bold text-apple-text mb-12 text-left">Eksplorasi Profil</h2>
+            
+            <!-- GRID UTAMA (items-stretch memaksa kolom kiri dan kanan memiliki tinggi yang sama) -->
+            <div class="flex flex-col md:flex-row gap-6 items-stretch">
+                
+                <!-- ================= KOLOM KIRI (2 Kotak Bertumpuk) ================= -->
+                <!-- md:h-auto memastikan tinggi kolom mengikuti container induk yang sudah stretch -->
+                <div class="w-full md:w-1/2 flex flex-col gap-6 md:h-auto">
+                    
+                    <!-- KOTAK 1: Tentang Saya (flex-1 membuatnya mengisi setengah tinggi kolom) -->
+                    <div class="flex-1 bg-apple-surface rounded-[2rem] p-8 md:p-10 border border-black/5 overflow-hidden relative min-h-[250px] flex flex-col justify-between group shadow-sm hover:shadow-md transition-all duration-300">
+                        <!-- Konten Teks -->
+                        <div class="max-w-[65%] z-10 text-left">
+                            <h3 class="text-2xl font-bold tracking-tight text-apple-text mb-3">Tentang Saya</h3>
+                            <p class="text-sm md:text-base text-gray-600 leading-relaxed font-medium">
+                                Mahasiswa semester 3 Departemen Proteksi Tanaman IPB yang berfokus pada pembelajaran, eksplorasi, dan inovasi. Tertarik pada kesehatan tanaman, penelitian, serta perpaduan antara sains, desain, dan teknologi untuk menciptakan solusi yang bermakna.
+                            </p>
+                        </div>
+                        <!-- Gambar Transparan (Pojok Kanan Bawah) -->
+                        <div class="absolute right-0 bottom-0 w-[50%] h-[100%] flex items-end justify-end pointer-events-none">
+                            <img src="KREATIF.png" alt="Tentang Saya" class="w-auto h-full object-contain object-bottom transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                    </div>
+
+                    <!-- KOTAK 2: Dunia Kreatif (flex-1 membuatnya mengisi setengah tinggi kolom) -->
+                    <div class="flex-1 bg-apple-surface rounded-[2rem] p-8 md:p-10 border border-black/5 overflow-hidden relative min-h-[250px] flex flex-col justify-between group shadow-sm hover:shadow-md transition-all duration-300">
+                        <!-- Konten Teks -->
+                        <div class="max-w-[65%] z-10 text-left">
+                            <h3 class="text-2xl font-bold tracking-tight text-apple-text mb-3">Dunia Kreatif</h3>
+                            <p class="text-sm md:text-base text-gray-600 leading-relaxed font-medium">
+                               Warna, estetika, dan makna menjadi alasan saya mendalami dunia kreatif, menghadirkan karya visual yang tidak hanya memanjakan mata, tetapi juga mampu menyampaikan cerita dan meninggalkan kesan.
+                        </div>
+                        <!-- Gambar Transparan (Pojok Kanan Bawah) -->
+                        <div class="absolute right-2 bottom-0 w-[42%] h-[75%] flex items-end justify-end pointer-events-none">
+                            <img src="mantis.png" alt="Dunia Kreatif" class="w-auto h-full object-contain object-bottom transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- ================= KOLOM KANAN (1 Kotak Panjang/Tinggi) ================= -->
+                <div class="w-full md:w-1/2 bg-apple-surface rounded-[2rem] p-8 md:p-10 border border-black/5 overflow-hidden relative min-h-[400px] md:min-h-[480px] flex flex-col justify-between group shadow-sm hover:shadow-md transition-all duration-300">
+                    
+                    <!-- Konten Teks (Aman tanpa perlu z-index karena struktur HTML relative mengalir dari atas ke bawah) -->
+                    <div class="text-left mb-4">
+                        <h3 class="text-2xl font-bold tracking-tight text-apple-text mb-3">Dunia Pertanian</h3>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed font-medium max-w-[90%]">
+                            Setiap praktikum, pengamatan di laboratorium, hingga kegiatan di lapangan membuat saya semakin memahami bahwa tanaman memiliki cerita unik dan seru untuk dipelajari.
+                        </p>
+                    </div>
+                    
+                    <!-- Gambar Transparan Besar di Bagian Bawah -->
+                    <!-- KUNCI BARU: Menggunakan 'relative', menghapus absolute, dan menggunakan negative margin -->
+                    <div class="relative h-[60%] md:h-[90%] -mx-8 -mb-8 md:-mx-10 md:-mb-10 flex items-end justify-center pointer-events-none">
+                        <img src="pertan.png" alt="Ilustrasi Pertanian" class="w-auto h-full object-contain object-bottom transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- SECTION: GALERI KEGIATAN BERANTAI (POLAROID STYLE)                -->
+    <!-- ================================================================= -->
+    <section id="activity" class="py-24 bg-gray-50 overflow-hidden relative">
+    
+        <!-- Header Section (Mengikuti gaya teks pilihanmu) -->
+        <div class="max-w-4xl mx-auto px-6 mb-16 text-center md:text-left">
+            <h2 class="text-gradient-blue text-5xl md:text-6xl font-bold tracking-tight mb-3 pt-4 pb-2 leading-tight">
+                Merangkai. Menyemai. Melindungi.
+            </h2>
+            <p class="text-gray-500 font-medium max-w-xl">
+                Dokumentasi jejak langkah dan kontribusi aktif mahasiswa dalam setiap kegiatan pengabdian serta inovasi ilmiah jurusan.
+            </p>
+        </div>
+
+        <!-- Container Utama Galeri -->
+        <div class="relative max-w-5xl mx-auto px-6">
+            
+            <!-- 🟢 TALI HIJAU ZIG-ZAG (DESKTOP ONLY) -->
+            <!-- Menggunakan teknik SVG elastis yang akan otomatis presisi menyambung dari pin ke pin -->
+            <div class="absolute inset-0 pointer-events-none hidden md:block z-0 px-16 py-6">
+                <svg class="w-full h-full stroke-emerald-500 stroke-[5] stroke-linecap-round stroke-linejoin-round fill-none opacity-80 filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.15)]" 
+                    viewBox="0 0 1000 1600" preserveAspectRatio="none">
+                    <!-- Jalur tali hijau menghubungkan koordinat tengah tiap kartu secara zig-zag -->
+                    <path d="M 250,20 L 750,200 L 250,600 L 750,700 L 380,1400" />
+                </svg>
+            </div>
+
+            <!-- 🟢 TALI HIJAU LURUS (MOBILE ONLY) -->
+            <div class="absolute inset-y-0 left-1/2 w-1.5 bg-gradient-to-b from-emerald-400 to-green-600 -translate-x-1/2 pointer-events-none md:hidden z-0 opacity-70"></div>
+
+            <!-- ISI KARTU FOTO (STAGGERED GRID) -->
+            <div class="w-full relative space-y-16 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-20 md:gap-y-28 z-10">
+                
+                <!-- KARTU 1: KIRI (Merangkai) -->
+                <div class="flex justify-center md:justify-start">
+                    <!-- 'md:-rotate-2' memberikan efek polaroid gantung alami -->
+                    <div class="relative w-[300px] sm:w-[340px] aspect-[4/5] bg-white p-4 pb-24 rounded-2xl shadow-xl border border-black/5 md:-rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-300 group">
+                        <!-- Pin Tali (Lingkaran kecil tempat tali mengikat) -->
+                        <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full border-4 border-emerald-600 bg-white shadow-md z-30"></div>
+                        
+                        <!-- Area Foto -->
+                        <div class="w-full h-full bg-gray-200 rounded-xl overflow-hidden relative">
+                            <img src="pengamatan.jpeg" alt="Merangkai" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        
+                        <!-- Keterangan Kegiatan dengan Efek Glassmorphism (glass-nav) -->
+                        <div class="absolute bottom-4 inset-x-4 bg-white/75 backdrop-blur-md border border-white/40 rounded-xl p-4 shadow-lg text-left">
+                            <h4 class="font-bold text-gray-900 text-lg mb-1">Praktikum Fitopatologi</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed font-medium">Merangkai formula media kultur jaringan untuk isolasi agen hayati di laboratorium.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KARTU 2: KANAN (Menyemai) -->
+                <!-- 'md:mt-32' digunakan untuk menggeser kartu ke bawah agar posisinya zig-zag seperti gambar sketsa -->
+                <div class="flex justify-center md:justify-end md:mt-32">
+                    <div class="relative w-[300px] sm:w-[340px] aspect-[4/5] bg-white p-4 pb-24 rounded-2xl shadow-xl border border-black/5 md:rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-300 group">
+                        <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full border-4 border-emerald-600 bg-white shadow-md z-30"></div>
+                        
+                        <div class="w-full h-full bg-gray-200 rounded-xl overflow-hidden relative">
+                            <img src="identifikasi.jpeg" alt="Menyemai" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        
+                        <div class="absolute bottom-4 inset-x-4 bg-white/75 backdrop-blur-md border border-white/40 rounded-xl p-4 shadow-lg text-left">
+                            <h4 class="font-bold text-gray-900 text-lg mb-1">Greenhouse Sowing</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed font-medium">Menyemai benih unggul hasil persilangan tahan penyakit blas skala masal.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KARTU 3: KIRI (Melindungi) -->
+                <div class="flex justify-center md:justify-start">
+                    <div class="relative w-[300px] sm:w-[340px] aspect-[4/5] bg-white p-4 pb-24 rounded-2xl shadow-xl border border-black/5 md:-rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-300 group">
+                        <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full border-4 border-emerald-600 bg-white shadow-md z-30"></div>
+                        
+                        <div class="w-full h-full bg-gray-200 rounded-xl overflow-hidden relative">
+                            <img src="akpt.jpeg" alt="Melindungi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        
+                        <div class="absolute bottom-4 inset-x-4 bg-white/75 backdrop-blur-md border border-white/40 rounded-xl p-4 shadow-lg text-left">
+                            <h4 class="font-bold text-gray-900 text-lg mb-1">Penyuluhan Lapangan</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed font-medium">Melindungi komoditas tani warga desa binaan lewat sosialisasi fungisida organik.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KARTU 4: KANAN -->
+                <div class="flex justify-center md:justify-end md:mt-32">
+                    <div class="relative w-[300px] sm:w-[340px] aspect-[4/5] bg-white p-4 pb-24 rounded-2xl shadow-xl border border-black/5 md:rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-300 group">
+                        <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full border-4 border-emerald-600 bg-white shadow-md z-30"></div>
+                        
+                        <div class="w-full h-full bg-gray-200 rounded-xl overflow-hidden relative">
+                            <img src="ssrs.jpeg" alt="Workshop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        
+                        <div class="absolute bottom-4 inset-x-4 bg-white/75 backdrop-blur-md border border-white/40 rounded-xl p-4 shadow-lg text-left">
+                            <h4 class="font-bold text-gray-900 text-lg mb-1">Agritech Exhibition</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed font-medium">Memamerkan prototype sistem deteksi hama berbasis sensor AI tingkat nasional.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- KARTU 5: TENGAH BAWAH (Penutup Rantai) -->
+            <!-- Ditempatkan di luar grid agar posisinya kembali ke tengah seperti akhir gambar sketsamu -->
+            <div class="flex justify-center mt-16 md:mt-36 relative z-10">
+                <div class="relative w-[300px] sm:w-[340px] aspect-[4/5] bg-white p-4 pb-24 rounded-2xl shadow-xl border border-black/5 md:rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-300 group">
+                    <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full border-4 border-emerald-600 bg-white shadow-md z-30"></div>
+                    
+                    <div class="w-full h-full bg-gray-200 rounded-xl overflow-hidden relative">
+                        <img src="field trip.jpg" alt="Makrab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    
+                    <div class="absolute bottom-4 inset-x-4 bg-white/75 backdrop-blur-md border border-white/40 rounded-xl p-4 shadow-lg text-left">
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Malam Keakraban Jurusan</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed font-medium">Menyatukan solidaritas dan merekatkan kebersamaan lintas angkatan mahasiswa.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ================================================================= -->
+    <!-- SECTION: ACADEMIC WRITING DIGITAL ARCHIVE (APPLE PREMIUM STYLE)  -->
+    <!-- ================================================================= -->
+    <section id="ide" class="py-24 bg-white text-apple-text relative overflow-hidden min-h-screenx">
+       
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <!-- Header Section -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                    </div>
+                    <h2 class="text-5xl md:text-7xl font-black tracking-tight text-apple-subtext ">Where Ideas<br>
+                        <span class="text-gradient lg:text-[7rem]">Take Root.</span>
+                    </h2>
+                </div>
+            </div>
+
+            <!-- AREA LAYOUT UTAMA (MEJA KERJA INTERAKTIF) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- 📚 SISI KIRI: INDEKS DOKUMEN (lg:col-span-5) -->
+                <div class="lg:col-span-5 space-y-5 flex flex-col">
+                    <span class="text-xs font-bold text-nanas-subtext uppercase tracking-wider mb-1 block">Daftar Tulisan:</span>
+                    
+                    <!-- KARTU MAKALAH 1 (ACTIVE BY DEFAULT) -->
+                    <div data-paper="1" class="paper-card active group relative bg-apple-bg border-2 border-accent-green rounded-3xl p-6 cursor-pointer shadow-premium-hover transition-all duration-500 ease-out flex gap-4">
+                        <div class="flex-1 pl-2">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] bg-accent-dark/10 text-nanas-subtext font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Riset Lapangan</span>
+                                <span class="text-xs font-bold text-accent-green">Grade: A+</span>
+                            </div>
+                            <h4 class="font-bold text-apple-text text-sm md:text-base leading-snug group-hover:text-accent-green transition-colors duration-300">
+                                Analisis Epidemiologi Penyakit Karat Daun (Hemileia vastatrix) pada Kopi Arabika
+                            </h4>
+                            <p class="text-xs text-nanas-subtext mt-3 font-semibold">Mata Kuliah: Fitopatologi Dasar • 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- KARTU MAKALAH 2 -->
+                    <div data-paper="2" class="paper-card group relative bg-apple-bg border border-apple-border rounded-3xl p-6 cursor-pointer shadow-premium transition-all duration-500 ease-out flex gap-4">
+                        <div class="flex-1 pl-2">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] bg-accent-dark/10 text-nanas-subtext font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Riset Lapangan</span>
+                                <span class="text-xs font-bold text-accent-green">Grade: A+</span>
+                            </div>
+                            <h4 class="font-bold text-apple-text text-sm md:text-base leading-snug group-hover:text-accent-blue transition-colors duration-300">
+                                Eksplorasi Fungi Endofit Akar Sebagai Agen Biokontrol Hayati Ralstonia solanacearum
+                            </h4>
+                            <p class="text-xs text-nanas-subtext mt-3 font-semibold">Mata Kuliah: Pengendalian Hayati • 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- KARTU MAKALAH 3 -->
+                    <div data-paper="3" class="paper-card group relative bg-apple-bg border border-apple-border rounded-3xl p-6 cursor-pointer shadow-premium transition-all duration-500 ease-out flex gap-4">
+                        <div class="flex-1 pl-2">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] bg-accent-dark/10 text-nanas-subtext font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Riset Lapangan</span>
+                                <span class="text-xs font-bold text-accent-green">Grade: A+</span>
+                            </div>
+                            <h4 class="font-bold text-apple-text text-sm md:text-base leading-snug group-hover:text-accent-green transition-colors duration-300">
+                                Optimasi Media Kultur Jaringan Kustom untuk Mikropropagasi Cepat Krisan Raksasa
+                            </h4>
+                            <p class="text-xs text-nanas-subtext mt-3 font-semibold">Mata Kuliah: Bioteknologi Pertanian • 2026</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 📝 SISI KANAN: PAPAN PREVIEW DOKUMEN AKTIF (lg:col-span-7) -->
+                <div class="lg:col-span-7 lg:sticky lg:top-8">
+                    
+                    <!-- Bingkai Kertas Dokumen Premium -->
+                    <div class="bg-apple-bg border border-apple-border rounded-3xl shadow-lg p-8 md:p-12 relative min-h-[550px] flex flex-col justify-between">
+                        
+                        <!-- AREA PREVIEW KONTEN DOKUMEN -->
+                        <div id="academic-desk-content" class="space-y-6">
+                            
+                            <!-- 📄 PREVIEW MAKALAH 1 -->
+                            <div id="preview-1" class="preview-panel space-y-6 transition-all duration-500 opacity-100 block">
+                                <div>
+                                    <span class="text-[10px] font-mono text-nanas-subtext block mb-1">DOI: 10.31294/fitopatologi.v4i2.01</span>
+                                    <h3 class="text-xl md:text-2xl font-black text-gradient-blue leading-tight">
+                                        Analisis Epidemiologi Penyakit Karat Daun (Hemileia vastatrix) pada Kopi Arabika di Dataran Tinggi Jepara
+                                    </h3>
+                                    <div class="flex flex-wrap gap-4 mt-4 text-xs font-semibold text-nanas-subtext border-b border-apple-border pb-5">
+                                        <span>👤 Penulis: Fadlilatul B.</span>
+                                        <span>🎓 Dosen: Dr. Ir. Suprapto, M.Sc.</span>
+                                        <span>⭐ Nilai: 96/100</span>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <h5 class="text-xs font-bold uppercase tracking-wider text-apple-text">Abstrak Riset</h5>
+                                    <p class="text-sm text-nanas-subtext leading-relaxed text-justify italic bg-apple-surface p-5 rounded-2xl border border-apple-border">
+                                        "Penyakit karat daun yang disebabkan oleh jamur Hemileia vastatrix merupakan ancaman utama produksi kopi arabika. Penelitian akademik ini menganalisis tingkat keparahan penyakit (disease severity) di wilayah perkebunan Kembang, Jepara menggunakan metode sampling acak. Hasil riset menunjukkan korelasi kuat antara kelembaban tinggi (>85%) dengan laju infeksi sporulasi spora oranye tanaman..."
+                                    </p>
+                                </div>
+
+                                <div class="space-y-2.5">
+                                    <h5 class="text-xs font-bold uppercase tracking-wider text-apple-text">Kata Kunci</h5>
+                                    <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                                        <span class="bg-apple-surface text-apple-text border border-apple-border px-3 py-1.5 rounded-lg">Hemileia vastatrix</span>
+                                        <span class="bg-apple-surface text-apple-text border border-apple-border px-3 py-1.5 rounded-lg">Epidemiologi</span>
+                                        <span class="bg-apple-surface text-apple-text border border-apple-border px-3 py-1.5 rounded-lg">Proteksi Kopi</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 📄 PREVIEW MAKALAH 2 -->
+                            <div id="preview-2" class="preview-panel space-y-6 transition-all duration-500 opacity-0 hidden">
+                                <div>
+                                    <span class="text-[10px] font-mono text-nanas-subtext block mb-1">DOI: 10.31294/biokontrol.v2i1.08</span>
+                                    <h3 class="text-xl md:text-2xl font-black text-gradient-blue leading-tight">
+                                        Eksplorasi Fungi Endofit Akar Sebagai Agen Biokontrol Hayati terhadap Bakteri Ralstonia solanacearum
+                                    </h3>
+                                    <div class="flex flex-wrap gap-4 mt-4 text-xs font-semibold text-nanas-subtext border-b border-apple-border pb-5">
+                                        <span>👤 Penulis: Fadlilatul B.</span>
+                                        <span>🎓 Dosen: Prof. Handoko, Ph.D.</span>
+                                        <span>⭐ Nilai: 92/100</span>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <h5 class="text-xs font-bold uppercase tracking-wider text-apple-text">Abstrak Riset</h5>
+                                    <p class="text-sm text-nanas-subtext leading-relaxed text-justify italic bg-apple-surface p-5 rounded-2xl border border-apple-border">
+                                        "Laporan laboratorium ini mendokumentasikan proses isolasi fungi endofit dari perakaran tanaman sehat untuk menekan layu bakteri pada solanaceae. Pengujian secara in-vitro menunjukkan isolat Trichoderma harzianum lokal memiliki efektivitas inhibisi zona hambat sebesar 74% terhadap koloni patogen virulent Ralstonia..."
+                                    </p>
+                                </div>
+
+                                <div class="space-y-2.5">
+                                    <h5 class="text-xs font-bold uppercase tracking-wider text-apple-text">Kata Kunci</h5>
+                                    <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                                        <span class="bg-apple-surface text-apple-text border border-apple-border px-3 py-1.5 rounded-lg">Fungi Endofit</span>
+                                        <span class="bg-apple-surface text-apple-text border border-apple-border px-3 py-1.5 rounded-lg">Layu Bakteri</span>
+                                        <span class="bg-apple-surface text-apple-text border border-apple-border px-3 py-1.5 rounded-lg">Biokontrol</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 📄 PREVIEW MAKALAH 3 -->
+                            <div id="preview-3" class="preview-panel space-y-6 transition-all duration-500 opacity-0 hidden">
+                                <div>
+                                    <span class="text-[10px] font-mono text-nanas-subtext block mb-1">DOI: 10.31294/biotech.v5i3.14</span>
+                                    <h3 class="text-xl md:text-2xl font-black text-gradient-blue leading-tight">
+                                        Optimasi Media Kultur Jaringan Kustom untuk Mikropropagasi Cepat Krisan Raksasa (Chrysanthemum morifolium)
+                                    </h3>
+                                    <div class="flex flex-wrap gap-4 mt-4 text-xs font-semibold text-nanas-subtext border-b border-apple-border pb-5">
+                                        <span>👤 Penulis: Fadlilatul B.</span>
+                                        <span>🎓 Dosen: Ir. Sri Lestari, M.P.</span>
+                                        <span>⭐ Nilai: 95/100</span>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <h5 class="text-xs font-bold uppercase tracking-wider text-apple-text">Abstrak Riset</h5>
+                                    <p class="text-sm text-nanas-subtext leading-relaxed text-justify italic bg-apple-surface p-5 rounded-2xl border border-apple-border">
+                                        "Studi ini mengkaji manipulasi rasio zat pengatur tumbuh (ZPT) Auksin dan Sitokinin pada media dasar MS standar. Hasil penelitian membuktikan penambahan kombinasi BAP 2.0 mg/L dan NAA 0.5 mg/L mempercepat inisiasi tunas eksplan krisan hingga 12 hari lebih awal dibandingkan kontrol perlakuan konvensional..."
+                                    </p>
+                                </div>
+
+                                <div class="space-y-2.5">
+                                    <h5 class="text-xs font-bold uppercase tracking-wider text-apple-text">Kata Kunci</h5>
+                                    <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                                        <span class="bg-apple-surface text-apple-text border border-apple-border px-3 py-1.5 rounded-lg">Kultur Jaringan</span>
+                                        <span class="bg-apple-surface text-apple-text border border-apple-border px-3 py-1.5 rounded-lg">Eksplan Krisan</span>
+                                        <span class="bg-apple-surface text-apple-text border border-apple-border px-3 py-1.5 rounded-lg">ZPT Optimasi</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- TOMBOL DOWNLOAD (PILL-SHAPED PREMIUM BUTTON) -->
+                        <div class="border-t border-apple-border pt-6 mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-accent-green animate-pulse"></span>
+                                <span class="text-[10px] font-mono text-nanas-subtext uppercase tracking-wider">Status: Terpublikasi Internal</span>
+                            </div>
+                            
+                            <a id="download-academic-pdf" href="assets/makalah-1.pdf" download class="w-full sm:w-auto flex items-center justify-center gap-2 bg-accent-dark hover:bg-accent-green text-white font-bold text-xs md:text-sm px-6 py-3.5 rounded-full transition-all duration-300 shadow-premium active:scale-95 group">
+                                <svg class="w-4 h-4 text-accent-green group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                                <span>Unduh Dokumen Lengkap (.PDF)</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    
+    <section id="karya" class="py-24 md:py- w-full overflow-hidden bg-[#ffffff]">
+        
+        <!-- Header Galeri -->
+        <div class="text-left px-8 md:px-16 lg:px-24 mb-12 md:mb-16">
+            <h1 class="text-gradient text-5xl md:text-7xl lg:text-[3rem] font-bold tracking-tighter leading-[1] md:leading-[1] mb-6 text-apple-text">
+                digitaL <br class="hidden lg:block">
+                <span class="text-gradient-blue text-7xl lg:text-[7rem]">iLustrasi</span>
+            </h1>     
+        </div>
+        <!-- Container Scroll Horizontal -->
+        <div class="flex overflow-x-auto gap-6 md:gap-8 pb-16 snap-x snap-mandatory no-scrollbar items-start">
+            <div class="shrink-0 w-2 md:w-8 lg:w-16 snap-start"></div>
+            
+            <!-- KARTU 1 -->
+            <!-- w-min memaksa lebar kartu mengikuti batas terkecil yang dibutuhkan oleh kontennya (dalam hal ini, gambar) -->
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <!-- Wrapper Gambar (Background gray dihapus, diganti white agar bersih) -->
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <!-- max-w-none adalah KUNCI agar gambar bebas menentukan lebarnya sesuai proporsi tinggi h-full, tanpa tergencet layout -->
+                    <img src="ILP-3.jpeg" alt="Karya 1" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+
+            <!-- KARTU 2 -->
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILK-1.jpeg" alt="Karya 2" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+
+            <!-- KARTU 3 -->
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-6.jpeg" alt="Karya 3" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            
+            <!-- KARTU 4 -->
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-19.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-9.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-20.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-13.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-11.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-4.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-10.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILK-2.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-5.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-7.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-18.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-17.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-2.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <div class="shrink-0 w-min flex flex-col snap-center md:snap-start group cursor-pointer">
+                <div class="relative h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-black/5 bg-white">
+                    <img src="ILP-1.jpeg" alt="Karya 4" class="h-full w-auto max-w-none object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+            <!-- Spacer Kosong di Akhir -->
+            <div class="shrink-0 w-4 md:w-8"></div>
+
+        </div>
+    </section>
+    <!-- ================================================================= -->
+    <!-- SECTION 1: FORMAT 9:16 (VERTICAL VIDEOS - JAUH LEBIH BESAR)       -->
+    <!-- ================================================================= -->
+    <section class="py-20 bg-gray-50 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 mb-10">
+        <h1 class="flex flex-wrap items-baseline gap-x-4 text-gradient-blue text-7xl md:text-7xl lg:text-[7rem] font-bold">
+            <!-- Teks Pertama -->
+            <span>VertikaL</span> 
+            
+            <!-- Teks Kedua (Menggunakan span + mempertahankan semua class aslimu) -->
+            <span class="text-gradient text-5xl md:text-7xl lg:text-[3rem] tracking-tighter leading-none mb-6 text-apple-text">Animation</span>
+        </h1> 
+            <p class="text-gray-500 text-left">Format 9:16 — Optimasi konten visual untuk TikTok, Instagram Reels, dan YouTube Shorts.</p>
+        </div>
+
+        <!-- Container Slider Utama -->
+        <div class="relative w-full flex items-center justify-center py-10">
+            
+            <!-- Wadah Panah: Dikunci Pas di Samping Kanan-Kiri Video Aktif (9:16) -->
+            <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[360px] md:w-[450px] lg:w-[500px] max-w-full px-4 flex justify-between items-center pointer-events-none z-30">
+                <!-- Tombol Panah Kiri -->
+                <button id="prev-916" class="pointer-events-auto w-12 h-12 rounded-full bg-apple-surface/30 backdrop-blur border border-black/10 shadow-lg hover:bg-white flex items-center justify-center text-gray-800 transition-all hover:scale-110 active:scale-95">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+                </button>
+                <!-- Tombol Panah Kanan -->
+                <button id="next-916" class="pointer-events-auto w-12 h-12 rounded-full bg-apple-surface/30 backdrop-blur border border-black/10 shadow-lg hover:bg-white flex items-center justify-center text-gray-800 transition-all hover:scale-110 active:scale-95">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                </button>
+            </div>
+
+            <!-- PERBAIKAN 1: Mengubah 'justify-center' menjadi 'justify-start' agar kalkulasi JS akurat -->
+            <div class="w-full overflow-hidden flex justify-start items-center h-[580px] md:h-[720px] relative">
+                <!-- PERBAIKAN 2: Menambahkan class 'relative' pada track -->
+                <div id="track-916" class="relative flex gap-6 md:gap-10 transition-transform duration-500 ease-out will-change-transform items-center">
+                    
+                    <!-- VIDEO ITEMS (Rasio Diperbesar Sempurna) -->
+                    <div class="video-item-916 shrink-0 w-[280px] md:w-[360px] lg:w-[400px] aspect-[9/16] bg-black rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 origin-center scale-90 opacity-40 blur-[1px] relative">
+                        <video src="Revv Last Diri.mp4" class="w-full h-full object-cover" loop muted playsinline></video>
+                    </div>
+
+                    <div class="video-item-916 shrink-0 w-[280px] md:w-[360px] lg:w-[400px] aspect-[9/16] bg-black rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 origin-center scale-90 opacity-40 blur-[1px] relative">
+                        <video src="VID-3.mp4" class="w-full h-full object-cover" loop muted playsinline></video>
+                    </div>
+
+                    <div class="video-item-916 shrink-0 w-[280px] md:w-[360px] lg:w-[400px] aspect-[9/16] bg-black rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 origin-center scale-90 opacity-40 blur-[1px] relative">
+                        <video src="Final Impian.mp4" class="w-full h-full object-cover" loop muted playsinline></video>
+                    </div>
+
+                    <div class="video-item-916 shrink-0 w-[280px] md:w-[360px] lg:w-[400px] aspect-[9/16] bg-black rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 origin-center scale-90 opacity-40 blur-[1px] relative">
+                        <video src="after movie.mp4" class="w-full h-full object-cover" loop muted playsinline></video>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- SECTION 2: FORMAT 16:9 (LANDSCAPE VIDEOS - JAUH LEBIH BESAR)      -->
+    <!-- ================================================================= -->
+    <section class="py-20 bg-white overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 mb-10">
+            <h1 class="flex flex-wrap items-baseline gap-x-4 text-gradient text-6xl md:text-7xl lg:text-[7rem] font-bold">
+                <!-- Teks Pertama -->
+                <span>Landscape</span> 
+                
+                <!-- Teks Kedua (Menggunakan span + mempertahankan semua class aslimu) -->
+                <span class="text-gradient-blue text-5xl md:text-7xl lg:text-[3rem] tracking-tighter leading-none mb-6 text-apple-text">Video</span>
+            </h1> 
+            <p class="text-gray-500 text-left">Format 16:9 — Produksi video lanskap untuk YouTube, company profile, dan visual sinematik.</p>
+        </div>
+
+        <!-- Container Slider Utama -->
+        <div class="relative w-full flex items-center justify-center py-10">
+            
+            <!-- Wadah Panah: Dikunci Pas di Samping Kanan-Kiri Video Aktif (16:9) -->
+            <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[410px] sm:w-[690px] md:w-[900px] lg:w-[1070px] max-w-full px-4 flex justify-between items-center pointer-events-none z-30">
+                <!-- Tombol Panah Kiri -->
+                <button id="prev-169" class="pointer-events-auto w-12 h-12 rounded-full bg-apple-surface/30 backdrop-blur border border-black/10 shadow-lg hover:bg-white flex items-center justify-center text-gray-800 transition-all hover:scale-110 active:scale-95">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+                </button>
+                <!-- Tombol Panah Kanan -->
+                <button id="next-169" class="pointer-events-auto w-12 h-12 rounded-full bg-apple-surface/30 backdrop-blur border border-black/10 shadow-lg hover:bg-white flex items-center justify-center text-gray-800 transition-all hover:scale-110 active:scale-95">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                </button>
+            </div>
+
+            <!-- PERBAIKAN 1: Mengubah 'justify-center' menjadi 'justify-start' agar kalkulasi JS akurat -->
+            <div class="w-full overflow-hidden flex justify-start items-center h-[320px] sm:h-[420px] md:h-[540px] lg:h-[620px] relative">
+                <!-- PERBAIKAN 2: Menambahkan class 'relative' pada track -->
+                <div id="track-169" class="relative flex gap-6 md:gap-12 transition-transform duration-500 ease-out will-change-transform items-center">
+                    
+                    <!-- VIDEO ITEMS (Rasio Diperbesar Sempurna) -->
+                    <div class="video-item-169 shrink-0 w-[340px] sm:w-[600px] md:w-[800px] lg:w-[950px] aspect-[16/9] bg-black rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 origin-center scale-90 opacity-40 blur-[1px] relative">
+                        <video src="Bumber Ss Day 1.mp4" class="w-full h-full object-cover" loop muted playsinline></video>
+                    </div>
+
+                    <div class="video-item-169 shrink-0 w-[340px] sm:w-[600px] md:w-[800px] lg:w-[950px] aspect-[16/9] bg-black rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 origin-center scale-90 opacity-40 blur-[1px] relative">
+                        <video src="Video Tron Rd(1).mp4" class="w-full h-full object-cover" loop muted playsinline></video>
+                    </div>
+
+                    <div class="video-item-169 shrink-0 w-[340px] sm:w-[600px] md:w-[800px] lg:w-[950px] aspect-[16/9] bg-black rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 origin-center scale-90 opacity-40 blur-[1px] relative">
+                        <video src="protecthings.mp4" class="w-full h-full object-cover" loop muted playsinline></video>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- ================================================================= -->
+<!-- SECTION: SKILLS WITH GIANT PODIUM & MATCHING TALL MASCOT          -->
+<!-- ================================================================= -->
+<section id="skill" class="py-20 md:py-28 px-6 bg-[#f5f5f7] overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+        <div class="max-w-4xl mx-auto px-6 mb-16 text-center md:text-center">
+            <h2 class="text-gradient-blue text-6xl md:text-8xl font-bold tracking-tight mb-3 pt-4 pb-4 leading-tight">
+                Apa aja skill ku?
+            </h2>
+        </div>
+        
+        <!-- Grid Utama: 'items-stretch' memastikan tinggi kotak kiri & kanan SELALU SEJAJAR sempurna -->
+        <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+            
+            <!-- 💻 KOLOM KIRI: KOTAK SOFTWARE + FOTO KARAKTER (OTOMATIS IKUT TINGGI) -->
+            <div class="lg:col-span-4 flex flex-col justify-between gap-8">
+                
+                <!-- Kotak Software & Tools -->
+                <div class="bg-white rounded-3xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-zinc-100/80">
+                    <h3 class="text-base font-bold text-gradient mb-6">Software & Tools</h3>
+                    
+                    <!-- Grid 4 Kolom Logo -->
+                    <div class="grid grid-cols-4 gap-3">
+                        <div class="aspect-square rounded-[22%] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:scale-105 transition-all duration-300 overflow-hidden" title="App 1">
+                            <img src="Figma_ The collaborative canvas for design, code, and AI.jpg" alt="Tool" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-[22%] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:scale-105 transition-all duration-300 overflow-hidden" title="App 2">
+                            <img src="Ibis paint x logo😘.jpg" alt="Tool" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-[22%] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:scale-105 transition-all duration-300 overflow-hidden" title="App 3">
+                            <img src="Canva_ Design, Photo & Video.jpg" alt="Tool" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-[22%] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:scale-105 transition-all duration-300 overflow-hidden" title="App 4">
+                            <img src="Adobe After Effects.jpg" alt="Tool" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-[22%] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:scale-105 transition-all duration-300 overflow-hidden" title="App 5">
+                            <img src="CapCut Logo.jpg" alt="Tool" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-[22%] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:scale-105 transition-all duration-300 overflow-hidden" title="App 6">
+                            <img src="g docs.jpg" alt="Tool" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-[22%] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:scale-105 transition-all duration-300 overflow-hidden" title="App 7">
+                            <img src="Google Sheet Logo Icon (1).jpg" alt="Tool" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 🌟 AREA FOTO KARAKTER/LEGO (Sekarang Ruangnya Lebih Tinggi & Besar!) -->
+                <div class="flex justify-center items-end mt-auto pt-4">
+                    <img src="potrait gpt.png" 
+                         alt="Character Mascot" 
+                         class="max-h-[420px] md:max-h-[480px] object-contain object-bottom select-none transition-all duration-300">
+                </div>
+            </div>
+
+            <!-- 👤 KOLOM KANAN: KOTAK SOFTSKILL (PODIUM RAKSASA) -->
+            <div class="lg:col-span-8 bg-white rounded-3xl p-8 md:p-12 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-zinc-100/80 flex flex-col justify-between overflow-hidden">
+                
+                <!-- Judul Section -->
+                <div>
+                    <h3 class="text-4xl md:text-5xl font-bold text-gradient tracking-tight">Softskill</h3>
+                </div>
+                
+                <!-- Wrapper Area Podium (Bisa di-swipe horizontal di HP agar tidak leaking) -->
+                <div class="w-full overflow-x-auto pb-2 scrollbar-none mt-8">
+                    
+                    <!-- 🏛️ Stage Area: Tinggi dinaikkan drastis dari 340px ke 540px! -->
+                    <div class="flex items-end justify-center gap-4 min-w-[580px] h-[540px] pt-12 px-2">
+                        
+                        <!-- PILAR #5: Teamwork (80%) -->
+                        <div class="flex flex-col items-center flex-1 text-center group">
+                            <span class="text-xl font-bold text-zinc-800">80%</span>
+                            <span class="text-xs font-medium text-zinc-500 mt-1 mb-4 block h-4">Teamwork</span>
+                            <!-- Tinggi Pilar naik ke h-44 -->
+                            <div class="w-full h-44 bg-blue-600 rounded-t-[32px] shadow-[0_8px_30px_rgba(0,0,0,0.03)] border border-zinc-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)]">
+                                <span class="text-3xl font-bold text-zinc-300 tracking-tighter">#5</span>
+                            </div>
+                        </div>
+
+                        <!-- PILAR #3: Public Speaking (88%) -->
+                        <div class="flex flex-col items-center flex-1 text-center group">
+                            <span class="text-xl font-bold text-zinc-800">88%</span>
+                            <span class="text-xs font-medium text-zinc-500 mt-1 mb-4 block h-4">Public Speaking</span>
+                            <!-- Tinggi Pilar naik ke h-72 -->
+                            <div class="w-full h-72 bg-green-400 rounded-t-[32px] shadow-[0_8px_30px_rgba(0,0,0,0.03)] border border-zinc-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)]">
+                                <span class="text-4xl font-bold text-white tracking-tighter">#3</span>
+                            </div>
+                        </div>
+
+                        <!-- PILAR #1: Creative Thinking (95%) - THE GIANT CHAMPION -->
+                        <div class="flex flex-col items-center flex-1 text-center group relative z-10">
+                            <span class="text-3xl mb-1 block animate-bounce">👑</span>
+                            <span class="text-3xl font-black text-zinc-900">95%</span>
+                            <span class="text-xs font-bold text-zinc-800 mt-1 mb-4 block h-4">Creative Thinking</span>
+                            <!-- Tinggi Pilar Raksasa Utama naik ke h-[390px] + Ukuran #1 Raksasa -->
+                            <div class="w-full h-[420px] bg-green-600 rounded-t-[32px] shadow-[0_15px_40px_rgba(0,0,0,0.05)] border-t-4 border-[#007afc] border-x border-b border-zinc-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_25px_50px_rgba(0,122,252,0.12)]">
+                                <span class="text-6xl font-extrabold text-white tracking-tighter drop-shadow-[0_2px_8px_rgba(0,122,252,0.1)]">#1</span>
+                            </div>
+                        </div>
+
+                        <!-- PILAR #2: Leadership (90%) -->
+                        <div class="flex flex-col items-center flex-1 text-center group">
+                            <span class="text-2xl font-bold text-zinc-800">90%</span>
+                            <span class="text-xs font-medium text-zinc-500 mt-1 mb-4 block h-4">Leadership</span>
+                            <!-- Tinggi Pilar naik ke h-80 -->
+                            <div class="w-full h-[350px] bg-green-500 rounded-t-[32px] shadow-[0_8px_30px_rgba(0,0,0,0.03)] border border-zinc-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)]">
+                                <span class="text-5xl font-bold text-white tracking-tighter">#2</span>
+                            </div>
+                        </div>
+
+                        <!-- PILAR #4: Problem Solving (85%) -->
+                        <div class="flex flex-col items-center flex-1 text-center group">
+                            <span class="text-xl font-bold text-zinc-800">85%</span>
+                            <span class="text-xs font-medium text-zinc-500 mt-1 mb-4 block h-4">Problem Solving</span>
+                            <!-- Tinggi Pilar naik ke h-56 -->
+                            <div class="w-full h-56 bg-blue-400 rounded-t-[32px] shadow-[0_8px_30px_rgba(0,0,0,0.03)] border border-zinc-100 flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)]">
+                                <span class="text-3xl font-bold text-zinc-300 tracking-tighter">#4</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <footer id="contact" class="bg-white text-gray-900 py-16 md:py-24 px-6 border-t border-black/5 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto relative reveal">
+            
+            <!-- ================= BARIS ATAS: GRID 3 KOLOM ================= -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-left">
+                
+                <!-- Kolom 1: Identitas & Kontak -->
+                <div class="space-y-4">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-apple-text">Fadlilatul Bahtiyar</h2>
+                    <div class="pt-2">
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-1">Hubungi Saya</h4>
+                        <p class="text-base text-gray-600 hover:text-blue-600 transition-colors">
+                            <a href="mailto:fadlilatul.bahtiyarr@gmail.com">fadlilatul.bahtiyarr@gmail.com</a>
+                        </p>
+                        <p class="text-sm text-gray-500 mt-1">IPB University, Bogor</p>
+                    </div>
+                </div>
+                
+                <!-- Kolom 2: Fokus & Kategori -->
+                <div>
+                    <h4 class="text-base font-bold text-apple-text mb-4 tracking-wide">Fokus & Minat</h4>
+                    <ul class="space-y-3 text-base text-gray-600 font-medium">
+                        <li><a class="hover:text-blue-600 transition-colors">Proteksi Tanaman</a></li>
+                        <li><a class="hover:text-blue-600 transition-colors">Sains & Biologi</a></li>
+                        <li><a class="hover:text-blue-600 transition-colors">Ilustrasi Digital</a></li>
+                        <li><a class="hover:text-blue-600 transition-colors">Inovasi Pertanian</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Kolom 3: Navigasi Tautan -->
+                <div>
+                    <h4 class="text-base font-bold text-apple-text mb-4 tracking-wide">Tautan</h4>
+                    <ul class="space-y-3 text-base text-gray-600 font-medium">
+                        <li><a href="#home" class="hover:text-blue-600 transition-colors">Beranda</a></li>
+                        <li><a href="#about" class="hover:text-blue-600 transition-colors">Tentang Saya</a></li>
+                        <li><a href="#karya" class="hover:text-blue-600 transition-colors">Galeri Karya</a></li>
+                        <li><a href="#skill" class="hover:text-blue-600 transition-colors">Skill</a></li>
+                        <li><a href="#contact" class="hover:text-blue-600 transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <!-- ================= GARIS PEMBATAS BARIS BAWAH ================= -->
+            <div class="border-t border-gray-200 pt-8 flex flex-col items-center justify-center relative">
+                
+                <!-- Baris Ikon Sosial Media (Menggunakan SVG Bulat Minimalis) -->
+                <div class="flex gap-4 mb-6">
+                    <!-- Telepon -->
+                    <a href="" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-blue-600 hover:border-blue-600 transition-all">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    </a>
+                    <!-- Email -->
+                    <a href="mailto:fadlilatul.bahtiyarr@gmail.com" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-blue-600 hover:border-blue-600 transition-all">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/fadlilatulbahtiyar/" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-blue-600 hover:border-blue-600 transition-all">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/bahtiyarrzz" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-blue-600 hover:border-blue-600 transition-all">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/></svg>
+                    </a>
+                </div>
+
+                <!-- Teks Kaki / Kredit -->
+                <p class="text-xs text-gray-500 text-center">
+                    Dibuat oleh <span class="font-semibold text-gray-900">Fadlilatul Bahtiyar</span>,<span class="text-blue-600 font-semibold">2026</span>.
+                </p>
+                
+                <!-- Tombol Kembali Ke Atas (Floating Back-to-Top di Pojok Kanan) -->
+                <!-- Anda bisa mengganti 'bg-blue-600' dengan warna aksen website Anda -->
+                <a href="#home" class="absolute right-0 bottom-0 md:bottom-2 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg hover:bg-blue-700 hover:scale-105 transition-all" title="Kembali ke atas">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/>
+                    </svg>
+                </a>
+                
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Typewriter Effect (Simple & robust)
+        const words = ["Fadlilatul.", "Bahtiyar.", "Bahti."];
+        let i = 0;
+        let timer;
+        const typewriterEl = document.getElementById('typewriter-text');
+        
+        function typeWriter(text, i, cb) {
+            if (i < text.length) {
+                typewriterEl.innerHTML = text.substring(0, i+1);
+                setTimeout(() => typeWriter(text, i + 1, cb), 100);
+            } else {
+                setTimeout(cb, 2000);
+            }
+        }
+        function deleteWriter(text, i, cb) {
+            if (i >= 0) {
+                typewriterEl.innerHTML = text.substring(0, i);
+                setTimeout(() => deleteWriter(text, i - 1, cb), 50);
+            } else {
+                cb();
+            }
+        }
+        function startTypewriter() {
+            typeWriter(words[i], 0, () => {
+                deleteWriter(words[i], words[i].length, () => {
+                    i = (i + 1) % words.length;
+                    startTypewriter();
+                });
+            });
+        }
+        startTypewriter();
+
+        // Scroll Reveal Logic (Intersection Observer)
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        reveals.forEach(reveal => observer.observe(reveal));
+
+        // Modal Logic (Maintaining original function names)
+        function openRoom(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                el.classList.remove('hidden');
+                // Small delay to allow display:block to apply before animating opacity
+                setTimeout(() => {
+                    el.classList.remove('opacity-0');
+                    el.classList.add('opacity-100');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                }, 10);
+            }
+        }
+
+        function closeRoom(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                el.classList.remove('opacity-100');
+                el.classList.add('opacity-0');
+                // Wait for animation to finish before hiding
+                setTimeout(() => {
+                    el.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            }
+        }
+    </script>
+    <!-- ================================================================= -->
+    <!-- JAVASCRIPT: LOGIC TETAP SAMA NAMUN SEKARANG BEKERJA 100% AKURAT   -->
+    <!-- ================================================================= -->
+    <script>
+    function initVideoCarousel(trackId, itemClass, prevBtnId, nextBtnId) {
+        const track = document.getElementById(trackId);
+        const items = document.querySelectorAll('.' + itemClass);
+        const prevBtn = document.getElementById(prevBtnId);
+        const nextBtn = document.getElementById(nextBtnId);
+        
+        let currentIndex = 0; 
+
+        function updateCarousel() {
+            if (items.length === 0) return;
+
+            // Sekarang kalkulasi koordinat dari titik start (0) akan berjalan sangat presisi
+            const trackCenter = track.parentElement.offsetWidth / 2;
+            const activeItem = items[currentIndex];
+            const itemCenterOffset = activeItem.offsetLeft + (activeItem.offsetWidth / 2);
+            
+            const translateX = trackCenter - itemCenterOffset;
+            track.style.transform = `translateX(${translateX}px)`;
+
+            items.forEach((item, index) => {
+                const video = item.querySelector('video');
+                
+                if (index === currentIndex) {
+                    // Video Aktif (Tengah)
+                    item.classList.remove('scale-90', 'opacity-40', 'blur-[1px]');
+                    item.classList.add('scale-100', 'opacity-100', 'z-20');
+                    
+                    if (video) {
+                        video.play().catch(err => console.log("Autoplay ditangguhkan browser."));
+                    }
+                } else {
+                    // Video Tidak Aktif (Samping)
+                    item.classList.remove('scale-100', 'opacity-100', 'z-20');
+                    item.classList.add('scale-90', 'opacity-40', 'blur-[1px]');
+                    
+                    if (video) {
+                        video.pause();
+                    }
+                }
+            });
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < items.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        updateCarousel();
+        window.addEventListener('resize', updateCarousel);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initVideoCarousel('track-916', 'video-item-916', 'prev-916', 'next-916');
+        initVideoCarousel('track-169', 'video-item-169', 'prev-169', 'next-169');
+    });
+    </script>
+    <!-- ================================================================= -->
+    <!-- JAVASCRIPT LOGIC FOR SCANNED SCHOLAR DESK                         -->
+    <!-- ================================================================= -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll(".paper-card");
+            const panels = document.querySelectorAll(".preview-panel");
+            const pdfButton = document.getElementById("download-academic-pdf");
+
+            // Daftar file PDF dinamis berdasarkan makalah pilihan
+            const pdfPaths = {
+                "1": "assets/makalah-fitopatologi.pdf",
+                "2": "assets/laporan-biokontrol.pdf",
+                "3": "assets/jurnal-kultur-jaringan.pdf"
+            };
+
+            // Skema warna aksen dinamis per makalah (Makalah 2 pakai aksen biru, 1 & 3 pakai hijau)
+            const themeColors = {
+                "1": { primary: "border-accent-green", shadow: "shadow-premium-hover", spine: "bg-accent-green" },
+                "2": { primary: "border-accent-blue", shadow: "shadow-premium-hover", spine: "bg-accent-blue" },
+                "3": { primary: "border-accent-green", shadow: "shadow-premium-hover", spine: "bg-accent-green" }
+            };
+
+            cards.forEach(card => {
+                card.addEventListener("click", () => {
+                    const targetNumber = card.getAttribute("data-paper");
+
+                    // 1. Reset Semua Tampilan Kartu di Sisi Kiri
+                    cards.forEach(c => {
+                        c.classList.remove("active", "border-accent-green", "border-accent-blue", "shadow-premium-hover");
+                        c.classList.add("border-apple-border", "shadow-premium");
+                        
+                        const spine = c.querySelector(".w-1");
+                        if (spine) {
+                            spine.className = "w-1 bg-apple-border rounded-full absolute left-0 inset-y-4 transition-colors duration-300";
+                        }
+                    });
+
+                    // 2. Pasang Desain Active Sesuai Kartu yang Dipilih
+                    const colorTheme = themeColors[targetNumber];
+                    card.classList.remove("border-apple-border", "shadow-premium");
+                    card.classList.add("active", colorTheme.primary, colorTheme.shadow);
+                    
+                    const activeSpine = card.querySelector(".w-1");
+                    if (activeSpine) {
+                        activeSpine.className = `w-1 ${colorTheme.spine} rounded-full absolute left-0 inset-y-4 transition-colors duration-300`;
+                    }
+
+                    // 3. Efek Transisi Animasi Fade In Lembaran Sisi Kanan
+                    panels.forEach(panel => {
+                        panel.classList.add("opacity-0", "hidden");
+                        panel.classList.remove("opacity-100", "block");
+                    });
+
+                    const activePanel = document.getElementById(`preview-${targetNumber}`);
+                    if (activePanel) {
+                        activePanel.classList.remove("hidden");
+                        setTimeout(() => {
+                            activePanel.classList.remove("opacity-0");
+                            activePanel.classList.add("opacity-100", "block");
+                        }, 50);
+                    }
+
+                    // 4. Update Target Unduh Berkas PDF
+                    if (pdfPaths[targetNumber]) {
+                        pdfButton.setAttribute("href", pdfPaths[targetNumber]);
+                    }
+                });
+            });
+
+            // Contoh inisiasi kelas reveal jika ingin langsung diuji (bisa dihapus jika logic scrollmu sudah ada)
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+    <script>
+        // 1. Ambil elemen menu dan semua link di dalamnya
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+        // 2. Beri fungsi klik pada setiap link
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Tambahkan kembali class 'hidden' untuk menutup menu
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+    </body>
+</html>
